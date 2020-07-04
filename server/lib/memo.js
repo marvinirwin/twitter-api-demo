@@ -6,6 +6,7 @@ module.exports = {
      * are JSON.stringify(params) and values are JSON.stringify(result).
      * Writes every time the memo is updated, and thus scales horribly,
      * but good for limiting repetitive API calls while developing
+     * Using this means results are stale after the first search
      * @param memoFilename
      * @param func
      * @returns {function(...[*]=): *}
