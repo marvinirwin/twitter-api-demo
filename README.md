@@ -8,21 +8,19 @@ Create `server/.env` and fill in the twitter API keys
 ```
 TWITTER_API_KEY=abc123
 TWITTER_API_KEY_SECRET=abc123
-TWITTER_BEARER_TOKEN=abc123
 PORT=3001
 ```
 
-### Run with Docker
+### Run with Docker 
 
 run `./docker.sh` to use docker to build the client with Node 14.4 and serve the project on `localhost:3001`
 
 
-### Run with native Node 
+### If node is installed locally
 ```
-cd client; # Build the React Page
+cd client; # Build the React Page (And copy the dist to server/public)
 npm install; 
 npm run build; 
-cp -r ./build ../server/public; # Copy the React page into the static directory of the server
 cd ../server; 
 npm install;  # Install and run the server
 npm run start
@@ -32,3 +30,4 @@ npm run start
 `/client` contains a React Page
 
 `/server` contains an Nodejs Express server
+

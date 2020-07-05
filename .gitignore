@@ -1,6 +1,5 @@
 server/.env
 server/node_modules
 client/node_modules
-server/TWEET_SEARCH_RESULTS.json
 client/build
 server/public

@@ -1,32 +1,25 @@
 const {memoFunction} = require('./memo');
 const Twitter = require('twitter-lite');
+const Twit = require('twit')
 
-async function initializeTwitterClient() {
-    const twitterKey = process.env["TWITTER_API_KEY"];
-    const twitterSecret = process.env["TWITTER_API_KEY_SECRET"];
-    const user = new Twitter({
-        consumer_key: twitterKey,
-        consumer_secret: twitterSecret,
-    });
-    const response = await user.getBearerToken();
-    return new Twitter({
-        bearer_token: response.access_token,
-        consumer_key: twitterKey,
-        consumer_secret: twitterSecret,
-    });
-}
+const twitterKey = process.env["TWITTER_API_KEY"];
+const twitterSecret = process.env["TWITTER_API_KEY_SECRET"];
 
-/**
- * @type {Promise<Twitter>}
- */
-const twitterClient = initializeTwitterClient();
-
+const twitterClient = new Twit({
+    consumer_key: twitterKey,
+    consumer_secret: twitterSecret,
+    timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests.
+    strictSSL: true,     // optional - requires SSL certificates to be valid.
+    app_only_auth: true
+});
 
 module.exports = {
-    memoizedSearchTweets: memoFunction("TWEET_SEARCH_RESULTS", async ({q, count}) => {
-        return await (await twitterClient).get("search/tweets", {
-            q,
-            count
-        });
-    })
+    memoizedSearchTweets: memoFunction("TWEET_SEARCH_RESULTS",
+        async ({q, count}) => {
+            const result =  await twitterClient.get("search/tweets", {
+                q,
+                count
+            });
+            return result.data;
+        })
 }
