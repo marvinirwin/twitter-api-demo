@@ -18,5 +18,8 @@
     "supertest": "^4.0.2",
     "twit": "^2.2.11",
     "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^26.1.0"
   }
 }

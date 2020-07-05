@@ -1,12 +1,12 @@
 # run with <command> <port>
-runWithDocker() {
-  docker run \
-      -it \
-      -v $(pwd):/global-relay \
-      -p $2:$2 \
-      node:14.4 /bin/bash -c "$1";
-}
+docker run \
+    -it \
+    -v $(pwd):/global-relay \
+    -p $1:$1 \
+    --env PORT=$1 \
+    node:14.4 /bin/bash -c "
+      cd /global-relay/client && npm install && npm run build
+      cd /global-relay/server && npm install && npm run start
+    ";
 
-runWithDocker "cd /global-relay/client && npm install && npm run build" 300 &&
-runWithDocker "cd /global-relay/server && npm install && npm run start" 3001
 

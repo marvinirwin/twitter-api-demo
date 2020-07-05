@@ -46,7 +46,6 @@ router.get('/search-tweets', async function (req, res, next) {
     }
 
     res.status(200);
-     // TODO inline
     res.json(await memoizedSearchTweets({q: encoded, count}));
 });
 

@@ -1,19 +1,18 @@
 
-### QuickStart
+### QuickStat (Make sure to set the API keys)
 
-Create `server/.env` and fill in the twitter API keys 
+Create `server/.env` and fill in the twitter API keys & port (See `server/env.example` the format)
 
 ![Twitter Keys](/twitter-keys.png)
 
 ```
 TWITTER_API_KEY=abc123
 TWITTER_API_KEY_SECRET=abc123
-PORT=3001
 ```
 
 ### Run with Docker 
 
-run `./docker.sh` to use docker to build the client with Node 14.4 and serve the project on `localhost:3001`
+run `./docker.sh 3001` to use docker to build the client with Node 14.4 and serve the project on `localhost:3001`
 
 
 ### If node is installed locally

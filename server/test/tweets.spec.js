@@ -7,7 +7,7 @@ const tweetMemoFilename = "TWEET_SEARCH_RESULTS.json";
 
 fs.pathExistsSync(tweetMemoFilename) && fs.removeSync(tweetMemoFilename);
 
-const app = require('../app')
+const app = require('../app');
 
 describe("GET /tweets", () => {
     let q = "Star Wars";
@@ -76,7 +76,7 @@ describe("GET /tweets", () => {
                 let statuses = res.body.statuses;
                 expect(statuses).toBeDefined();
                 expect(statuses.length).toBeGreaterThan(0);
-                expect(statuses).toHaveProperty('0.text')// TODO is this keypath correct?
+                expect(statuses).toHaveProperty('0.text')
             });
     });
 });
