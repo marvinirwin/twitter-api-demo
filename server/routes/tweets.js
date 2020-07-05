@@ -1,5 +1,4 @@
 const express = require('express');
-const Twitter = require('twitter-lite');
 const {memoizedSearchTweets} = require('../lib/twitter');
 const utf8 = require('utf8');
 

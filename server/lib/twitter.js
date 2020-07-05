@@ -1,5 +1,4 @@
 const {memoFunction} = require('./memo');
-const Twitter = require('twitter-lite');
 const Twit = require('twit')
 
 const twitterKey = process.env["TWITTER_API_KEY"];

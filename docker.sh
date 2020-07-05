@@ -7,6 +7,6 @@ runWithDocker() {
       node:14.4 /bin/bash -c "$1";
 }
 
-runWithDocker "cd /global-relay/client && npm install && npm run build" 3000;
-runWithDocker "cd /global-relay/server && npm install && npm run start" 3001;
+runWithDocker "cd /global-relay/client && npm install && npm run build" 300 &&
+runWithDocker "cd /global-relay/server && npm install && npm run start" 3001
 
